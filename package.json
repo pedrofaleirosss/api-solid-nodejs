@@ -8,7 +8,8 @@
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@types/bcryptjs": "2.4.6",
     "@types/node": "24.8.0",
+    "@vitest/coverage-v8": "4.0.8",
     "prisma": "6.17.1",
     "tsup": "8.5.0",
     "tsx": "4.20.6",
