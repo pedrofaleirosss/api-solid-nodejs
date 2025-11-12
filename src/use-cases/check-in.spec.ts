@@ -18,8 +18,8 @@ describe("Check-in Use Case", () => {
       id: "gym-01",
       title: "JavaScript Gym",
       description: "",
-      latitude: new Prisma.Decimal(0),
-      longitude: new Prisma.Decimal(0),
+      latitude: new Prisma.Decimal(-23.1309312),
+      longitude: new Prisma.Decimal(-46.563328),
       phone: "",
     });
 
@@ -81,5 +81,25 @@ describe("Check-in Use Case", () => {
     });
 
     expect(checkIn.id).toEqual(expect.any(String));
+  });
+
+  it("should not be able to check in on distant gym", async () => {
+    gymsRepository.items.push({
+      id: "gym-02",
+      title: "JavaScript Gym",
+      description: "",
+      latitude: new Prisma.Decimal(-23.0835318),
+      longitude: new Prisma.Decimal(-46.5407408),
+      phone: "",
+    });
+
+    await expect(() =>
+      sut.execute({
+        gymId: "gym-02",
+        userId: "user-01",
+        userLatitude: -23.1309312,
+        userLongitude: -46.563328,
+      })
+    ).rejects.toBeInstanceOf(Error);
   });
 });
