@@ -1,4 +1,4 @@
-import { Gym, Prisma } from "generated/prisma";
+import { Gym, Prisma } from "@prisma/client";
 import { FindManyNearbyParams, GymsRepository } from "../gyms-repository";
 import { randomUUID } from "node:crypto";
 import { getDistanceBetweenCoordinates } from "@/utils/get-distance-between-coordinates";

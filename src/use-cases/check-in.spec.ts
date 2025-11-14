@@ -2,7 +2,7 @@ import { expect, describe, it, beforeEach, vi, afterEach } from "vitest";
 import { CheckInUseCase } from "./check-in";
 import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-check-ins-repository";
 import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memory-gyms-repository";
-import { Prisma } from "generated/prisma";
+import { Prisma } from "@prisma/client";
 import { MaxNumberOfCheckInsError } from "./erros/max-number-of-check-ins-error";
 import { MaxDistamceError } from "./erros/max-distance-error";
 
